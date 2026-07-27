@@ -1,4 +1,5 @@
-import ollama
+import os
+from google import genai
 from prompt import PROMPT_BASE
 from ejercicios import *
 
@@ -76,16 +77,15 @@ Día 6 - Pierna
 # IA
 # ==========================================
 
+client = genai.Client(
+    api_key=os.getenv("GEMINI_API_KEY")
+)
+
 def generar_rutina(objetivo, nivel, dias, tiempo):
 
     division = obtener_division(dias)
 
-    respuesta = ollama.chat(
-        model="gemma3:12b",
-        messages=[
-            {
-                "role": "user",
-                "content": f"""
+    prompt = f"""
 {PROMPT_BASE}
 
 # DIVISIÓN OBLIGATORIA
@@ -110,14 +110,11 @@ Objetivo: {objetivo}
 Nivel: {nivel}
 Días por semana: {dias}
 Tiempo por sesión: {tiempo}
-""",
-            }
-        ],
-     options={
-        "think": False,
-        "num_ctx": 8192,
-        "num_predict": 500,
-        }
+"""
+
+    respuesta = client.models.generate_content(
+        model="gemini-flash-latest",
+        contents=prompt,
     )
 
-    return respuesta["message"]["content"]
+    return respuesta.text
