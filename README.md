@@ -125,7 +125,7 @@ La IA ha sido entrenada mediante un sistema de instrucciones personalizado para 
 
 ## 👨‍💻 Desarrollador
 
-Proyecto desarrollado íntegramente por **Marco*, con **15 años**, como proyecto personal para el gimnasio **Worldfitness**.
+Proyecto desarrollado íntegramente por **Marco**, con **15 años**, como proyecto personal para el gimnasio **Worldfitness**.
 
 Este proyecto ha sido creado con el objetivo de aprender desarrollo de software, Inteligencia Artificial y crear una herramienta útil para los socios del gimnasio.
 
