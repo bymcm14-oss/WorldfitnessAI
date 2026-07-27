@@ -1,4 +1,6 @@
 import streamlit as st
+import base64
+from IA import generar_rutina
 
 st.set_page_config(
     page_title="WorldfitnessAI",
@@ -6,15 +8,40 @@ st.set_page_config(
     layout="centered",
 )
 
-col1, col2 = st.columns([4, 1])
+# ==========================================
+# LOGO CENTRADO
+# ==========================================
 
-with col1:
-    st.title("WorldfitnessAI")
-    st.caption("Tu rutina personalizada en menos de un minuto.")
+with open("assets/logo.png", "rb") as f:
+    logo_base64 = base64.b64encode(f.read()).decode()
 
-with col2:
-    st.write("🏋️")
-    
+st.markdown(
+    f"""
+    <div style="text-align: center;">
+        <img src="data:image/png;base64,{logo_base64}" width="120">
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ==========================================
+# TÍTULO
+# ==========================================
+
+st.markdown(
+    "<h1 style='text-align: center;'>WorldfitnessAI</h1>",
+    unsafe_allow_html=True,
+)
+
+# ==========================================
+# ESLOGAN
+# ==========================================
+
+st.markdown(
+    "<p style='text-align: center; color: gray;'>Tu rutina personalizada en menos de un minuto.</p>",
+    unsafe_allow_html=True,
+)
+
 st.divider()
 
 st.subheader("👋 ¡Bienvenido!")
@@ -62,8 +89,26 @@ st.write("Tiempo disponible por sesión:", tiempo)
 st.divider()
 
 if st.button("🏋️ Generar rutina", use_container_width=True):
-    with st.spinner("Generando rutina personalizada..."):
-        import time
-        time.sleep(3)
+    with st.spinner("🤖 Generando rutina personalizada..."):
+
+        rutina = generar_rutina(
+            objetivo,
+            nivel,
+            dias,
+            tiempo
+        )
 
     st.success("✅ ¡Rutina generada correctamente!")
+
+    st.info(f"""
+🎯 Objetivo: {objetivo}
+
+💪 Nivel: {nivel}
+
+📅 Días por semana: {dias}
+
+⏱️ Tiempo por sesión: {tiempo}
+""")
+    st.subheader("📋 Tu rutina personalizada")
+
+    st.write(rutina)
