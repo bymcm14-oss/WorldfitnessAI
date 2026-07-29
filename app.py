@@ -80,6 +80,10 @@ dias = st.slider(
     
 )
 st.write("Has seleccionado entrenar", dias, "días a la semana.")
+if dias == 7:
+    st.warning(
+        "⚠️ Debido a un gran volumen de entrenamiento, el día 6 de la rutina será Frecuencia II, es decir, repetirás un grupo muscular."
+    )
 
 tiempo = st.select_slider(
     "¿Cuánto tiempo puedes dedicar a cada entrenamiento?",

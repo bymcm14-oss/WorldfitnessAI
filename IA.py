@@ -32,8 +32,12 @@ TRÍCEPS:
 # ==========================================
 
 def obtener_division(dias):
+    if dias == 1:
+        return """
+Día 1 - Full Body
+"""
 
-    if dias == 2:
+    elif dias == 2:
         return """
 Día 1 - Full Body
 Día 2 - Full Body
@@ -62,8 +66,18 @@ Día 3 - Pierna
 Día 4 - Hombros
 Día 5 - Brazos
 """
+    elif dias == 7:
+        return """
+Día 1 - Pecho
+Día 2 - Espalda
+Día 3 - Pierna
+Día 4 - Hombros
+Día 5 - Brazos
+Día 6 - Frecuencia II
+Día 7 - Descanso
+"""
 
-    else:
+    elif dias == 6:
         return """
 Día 1 - Push
 Día 2 - Pull
