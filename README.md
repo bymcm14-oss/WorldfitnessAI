@@ -92,8 +92,8 @@ El proyecto utiliza:
 
 * **Python**
 * **Streamlit**
-* **Ollama**
-* **Gemma 3 12B**
+* **Gemini**
+* **Gemini 2.5 flash y Gemini 3.6 flash**
 
 La IA ha sido entrenada mediante un sistema de instrucciones personalizado para generar rutinas coherentes, seguras y adaptadas a cada usuario.
 
@@ -103,8 +103,7 @@ La IA ha sido entrenada mediante un sistema de instrucciones personalizado para 
 
 * Python
 * Streamlit
-* Ollama
-* Gemma 3 12B
+* Gemini
 * Markdown
 
 ---
